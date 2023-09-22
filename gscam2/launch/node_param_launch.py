@@ -41,8 +41,8 @@ def generate_launch_description():
         ],
         # Remap outputs to the correct namespace
         remappings=[
-            ('/image_raw', '/' + camera_name + '/image_raw'),
-            ('/camera_info', '/' + camera_name + '/camera_info'),
+            ('/my_camera/image_raw', '/' + 'front_camera' + '/image_raw'),
+            ('/my_camera/camera_info', '/' + 'front_camera' + '/camera_info'),
         ],
     )
 
