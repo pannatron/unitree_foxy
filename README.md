@@ -29,3 +29,9 @@ colcon build ;source install/setup.bash
 ros2 launch gscam2 node_param_launch.py
 ```
 ตอนนี้, คุณควรจะสามารถดูฟีดวิดีโอจากกล้องและรับข้อมูลจาก Robot ได้.
+
+#Unitree_control_ros2
+
+```bash
+https://gist.github.com/dbaldwin/feb0d279c67e0bcb191d2b366f867a84
+```
