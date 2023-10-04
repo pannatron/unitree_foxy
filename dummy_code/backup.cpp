@@ -63,51 +63,53 @@ int main(int argc, char **argv)
         if (symbol_type_global >= 1 && symbol_type_global <= 8) {
             std::cout << "Received symbol_type is within the range 1-8: " << symbol_type_global << std::endl;
             if (symbol_type_global == 1){
-               high_cmd_ros.mode = 5; // stand down
-               std::cout << "Stand down" << std::endl;
+               high_cmd_ros.mode = 5;
             }
             if (symbol_type_global == 2){
-               high_cmd_ros.mode = 6; // stand up
-               std::cout << "Stand up" << std::endl;
+               high_cmd_ros.mode = 6;
             }
             if (symbol_type_global == 3){
-               high_cmd_ros.mode = 10; // jumpYaw
-               std::cout << "Jump Yaw" << std::endl;
-
+               high_cmd_ros.mode = 2;
+               high_cmd_ros.gait_type = 0;
+               high_cmd_ros.velocity[0] = 0.0f; // -1  ~ +1
+               high_cmd_ros.body_height = 0.0;
             }
             if (symbol_type_global == 4){
-               high_cmd_ros.mode = 11; //straight hand
-               std::cout << "Straight hand" << std::endl;
-               
+               high_cmd_ros.mode = 2;
+               high_cmd_ros.gait_type = 1;
+               high_cmd_ros.velocity[0] = 0.4f; // -1  ~ +1
+               high_cmd_ros.body_height = 0.0;
             }
             if (symbol_type_global == 5){
-               high_cmd_ros.mode = 12; // dance 1
-               std::cout << "Dance 1" << std::endl;}
-  
+               high_cmd_ros.mode = 2;
+               high_cmd_ros.gait_type = 2;
+               high_cmd_ros.velocity[0] = 0.4f; // -1  ~ +1
+               high_cmd_ros.yaw_speed = 0.1;
+               high_cmd_ros.foot_raise_height = 0.1;
+            }
             if (symbol_type_global == 6){
                high_cmd_ros.mode = 2;
-               high_cmd_ros.gait_type = 2;
-               high_cmd_ros.velocity[0] = -0.2f; // -1  ~ +1
+               high_cmd_ros.gait_type = 1;
+               high_cmd_ros.velocity[0] = 0.0f; // -1  ~ +1
                high_cmd_ros.yaw_speed = 0.0;
-               high_cmd_ros.foot_raise_height = 0.05;
- 
+               high_cmd_ros.foot_raise_height = 0.2;
             }
-            
             if (symbol_type_global == 7){
                high_cmd_ros.mode = 2;
-               high_cmd_ros.gait_type = 2;
-               high_cmd_ros.velocity[0] = 0.2f; // -1  ~ +1
+               high_cmd_ros.gait_type = 1;
+               high_cmd_ros.velocity[1] = 0.2f; // -1  ~ +1
                high_cmd_ros.yaw_speed = 0.0;
-               high_cmd_ros.foot_raise_height = 0.05;
-
+               high_cmd_ros.foot_raise_height = 0.2;
             }
             
             if (symbol_type_global == 8){
                high_cmd_ros.mode = 2;
-               high_cmd_ros.gait_type = 2;
-               high_cmd_ros.velocity[0] = 0.0f; // -1  ~ +1
+               high_cmd_ros.gait_type = 1;
+               high_cmd_ros.velocity[1] = -0.2f; // -1  ~ +1
                high_cmd_ros.yaw_speed = 0.0;
+               high_cmd_ros.foot_raise_height = 0.2;
             }
+         
             
         }
         pub->publish(high_cmd_ros);
