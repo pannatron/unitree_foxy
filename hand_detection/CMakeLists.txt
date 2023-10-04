@@ -25,6 +25,7 @@ find_package(cv_bridge REQUIRED)
 # Install Python script
 install(PROGRAMS
   scripts/hand_detection_node.py
+  scripts/aruco_distance_estimator.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
